@@ -1,0 +1,25 @@
+{
+  "name": "notas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon src/app.js",
+    "start": "node src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bootstrap": "^5.2.3",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-router": "^0.0.1",
+    "express-validator": "^7.0.1",
+    "fs": "^0.0.1-security",
+    "method-override": "^3.0.0",
+    "nodemon": "^2.0.22"
+  }
+}

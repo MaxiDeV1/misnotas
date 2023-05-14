@@ -1,0 +1,26 @@
+body{
+    font-family: Arial;
+    margin: 0;
+}
+ul li{
+    list-style: none;
+}
+h3 {
+    margin-left: 10px;
+    color: black;
+}
+a {
+    text-decoration: none;
+}
+header img{
+    margin: 15px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+header {
+    display: flex;   
+    justify-content: space-between;
+    background-color: rgb(26, 26, 26);
+}
+

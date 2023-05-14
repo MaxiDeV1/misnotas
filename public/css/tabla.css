@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    background-color: black;
+    font-family: Arial;
+}
+.table {
+    margin: 50px auto;
+    width: 100%;
+}
+table {
+    border-collapse: collapse;
+    background-color: white;
+    text-align: left;
+    width: 100%;
+}
+tr:hover {
+    color: whitesmoke;
+    background-color: rgb(197, 194, 194);
+}
+th,td {
+    text-align: center;
+    padding: 20px;
+}
+thead {
+    color: whitesmoke;
+    background-color: rgba(221, 49, 49,0.9);
+    border-bottom: solid 5px rgb(222, 30, 30);
+}

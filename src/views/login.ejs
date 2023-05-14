@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+        <script src="/js/index.js"></script>
+        <title>Inicio</title>
+    </head>
+    <body>
+        <main>
+            <div class="login">
+                <form action="/" method="POST">
+                    <h2>Login</h2>
+                    <div class="login-inputs">                    
+                        <label for="dni">DNI</label>
+                        <input type="number" name="dni" id="dni"  min="1" max="10000000" required>
+                        <label for="password">Contraseña</label>
+                        <input type="password" name="password"
+                            class="form-control" required>
+                        </div>
+                        <input type="checkbox" name="connected" class="checkbox">
+                        <label for="connected">Matenerme conectado</label>
+                        <div class="errores">
+                            <% if (locals && locals.error) {%>
+                                <% for (let error in msgError) { %>
+                                    <ul>
+                                        <li><% msgError[error].msg %></li>
+                                    </ul>
+                                <% } %>
+                            <% } %>
+                        </div>
+                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                </form>
+                <div class="form-bottom">
+                    <a href="">No tienes cuenta?</a>
+                    <a href="">Olvide mi contraseña</a>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
