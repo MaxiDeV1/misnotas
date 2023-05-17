@@ -1,28 +1,31 @@
 body {
     margin: 0;
-    background-color: black;
     font-family: Arial;
+    background-color: rgb(26, 26, 26);
 }
 .table {
     margin: 50px auto;
-    width: 100%;
+    width: 80%;
+    justify-content: center;
 }
 table {
     border-collapse: collapse;
     background-color: white;
     text-align: left;
     width: 100%;
+    border: solid 1px black;
 }
 tr:hover {
     color: whitesmoke;
     background-color: rgb(197, 194, 194);
+    cursor: pointer;
 }
 th,td {
     text-align: center;
     padding: 20px;
+    border: solid 1px black;
 }
 thead {
     color: whitesmoke;
-    background-color: rgba(221, 49, 49,0.9);
-    border-bottom: solid 5px rgb(222, 30, 30);
+    background-color: #003049;
 }

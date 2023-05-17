@@ -21,6 +21,7 @@ button {
     border-radius: 5px;
     border: none;
     padding: 10px 50px;
+    cursor: pointer;
 }
 button:hover {
     transition: linear all 3ms;
@@ -52,3 +53,24 @@ a {
     flex-direction: column;
     background-color: rgb(26, 26, 26);
 }
+
+    .main-header {
+      background-color: #1a1a1a;
+      padding: 0.3rem;
+      color: #fff;
+    }
+
+    .logo {
+      height: 6.25rem;
+      cursor: pointer;
+    }
+
+    .fa-solid{
+      margin: 45px 40px 10px 10px;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .contorno:hover {
+      color: rgb(201, 201, 201);
+    }

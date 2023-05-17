@@ -16,11 +16,12 @@ header img{
     margin: 15px;
     height: 60px;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 header {
     display: flex;   
     justify-content: space-between;
-    background-color: rgb(26, 26, 26);
+    background-color: #d62828
 }
 

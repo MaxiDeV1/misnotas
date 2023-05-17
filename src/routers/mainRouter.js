@@ -1,6 +1,6 @@
 const express = require('express'); 
 const router = express.Router()
-const userController = require('../controllers/mainController')
+const mainController = require('../controllers/mainController')
 router.use(express.urlencoded({extended: false}))
-router.get('/',userController.inicio)
+router.get('/',mainController.inicio)
 module.exports = router

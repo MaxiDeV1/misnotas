@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const {validationResult} = require('express-validator')
 const usersPath = path.join(__dirname,'../database/db.json')
+const notas = path.join(__dirname,'../database/notas.json')
 const bcrypt = require('bcryptjs')
 const userData = JSON.parse(fs.readFileSync(usersPath,'utf-8'))
 userController.login = (req,res) => {
@@ -31,5 +32,8 @@ userController.newUser = (req,res) => {
     userData.push(newUser)
     fs.appendFileSync(usersPath,JSON.stringify(newData),'utf-8')
     return res.redirect('/login',{userData})
-} 
+},
+userController.cargar = (req,res) => {
+    res.render('cargado')
+}
 module.exports = userController

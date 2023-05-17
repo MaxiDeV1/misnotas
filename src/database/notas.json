@@ -1,0 +1,12 @@
+[
+    {
+        "materia": "Matematicas",
+        "nota": "10",
+        "asistencia": "8"
+    },
+    {
+        "materia": "ingles",
+        "nota": "7",
+        "asistencia": "4"
+    }
+]
