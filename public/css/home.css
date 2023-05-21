@@ -49,13 +49,14 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: rgb(26, 26, 26);
+  background-color: #5c6d69;
 }
 
 .contorno:hover {
   color: rgb(201, 201, 201);
 }
 
-.cuadro{
-    background-color: red;
+.cuadro {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
 }

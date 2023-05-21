@@ -24,6 +24,7 @@ h2 {
     transform: translate(-50%,-50%);
     background-color: rgb(79, 78, 78);
     border-radius: 2%;
+    margin-bottom: 10rem;
 }
 .login-inputs {
     display: flex;
@@ -80,4 +81,15 @@ img {
 }
 .form-bottom a:hover {
     text-decoration: underline;
+}
+.errores {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+}
+.errores small {
+    font-weight: 500;
+    margin-top: 15px;
+    color: whitesmoke;
+    font-size: 18px;
 }
