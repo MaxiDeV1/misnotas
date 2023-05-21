@@ -1,53 +1,50 @@
-body {
-  font-family: Arial;
-  margin: 0;
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 20px;
 }
-ul li {
+body {
+  margin: 0;
+  background: url('../img/fondo.jpg');
+}
+header {
+  border-bottom: solid 3px black;
+  background-color: #650909;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 85px;
+  padding: 5px 20px;
+}
+header .logo {
+  cursor: pointer;
+}
+header .logo img {
+  height: 70px;
+  border-radius: 50%;
+}
+header .nav-links {
   list-style: none;
 }
-h3 {
-  margin-left: 10px;
-  color: black;
+p {
+  color: whitesmoke;
 }
-a {
+header .nav-links li{
+  padding: 0 5px; 
+}
+header .nav-links a{
+  font-size: 700;
+  color: whitesmoke;
   text-decoration: none;
 }
-
-.main-header-top-bar {
-  display: flex;
-}
-
-.main-header-top-bar h4 {
-  margin: 55px 20px 20px 15px;
-}
-
-header img {
-  margin: 15px;
-  height: 60px;
-  border-radius: 50%;
+span {
   cursor: pointer;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  background-color: #d62828;
-}
-
-.main-header {
-  background-color: #1a1a1a;
-  padding: 0.3rem;
-  color: #fff;
-}
-
-.logo {
-  height: 6.25rem;
-  cursor: pointer;
-}
-
-#login {
+  border-radius: 49%;
+  border: solid 2px whitesmoke;
+  padding: 15px;
   color: whitesmoke;
-  margin: 45px 40px 10px 10px;
-  font-size: 40px;
-  cursor: pointer;
+  font-size: 25px;
+}
+.subtitulo {
+  font-size: 17px;
 }
