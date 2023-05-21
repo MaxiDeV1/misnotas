@@ -15,7 +15,7 @@
     <main>
         <div class="table">
             <h2> Curso: 6to 2da</h2>
-            <h2> Alumno: Gonzalo Forneron </h2>
+            <h2> Alumno: </h2>
             <table>
 
                 <div id="table-head">
@@ -29,21 +29,20 @@
                 </div>
                 <div id="table-body">
                     <tbody>
-                        <% for (let i = 0; i < notasFinal.length; i++) { %>
+                        <% for (let i = 0; i < Materia.length; i++) { %>
                           <tr>
                             <td>
-                              <%= notasFinal[i].materia.Nombre %>
+                              <%= Materia[i].Nombre %>
                             </td>
                             <td>
-                              <%= notasFinal[i].Nota %>
+                                <input type="text" name="nota" placeholder="Ingrese la nota">
                             </td>
                             <td>
-                              falta ver como agregar esto a la base
+                                <input type="text" name="asistencias" placeholder="Ingrese las asistencias">
                             </td>
                           </tr>
                         <% } %>
                       </tbody>
-                      <a href="/alumnos/cargado">cargado de notas</a>
                 </div>
             </table>
         </div>

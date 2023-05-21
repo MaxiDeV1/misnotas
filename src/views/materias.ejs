@@ -27,47 +27,20 @@
                     </div>
                     <div id="table-body">
                         <tbody>
-                            <tr>
-                                <th scope="row">Matematica</th>
-                                <th scope="row">Marta Robledo</th>
-                                <th scope="row">Miercoles: 17:20 A 18:00
-                                    <br> jueves: 20:10 A 21:40
-                                    <br> viernes: 18:00 A 19:20
-                                </th>
-                            </tr>
-                            <tr>
-                                <th scope="row">Ingles</th>
-                                <th scope="row">Jil Yago</th>
-                                <th scope="row"> Miercoles 16:00 A 17:20</th>
-                            </tr>
-                            <tr>
-                                <th scope="row">Lengua</th>
-                                <th scope="row">Navarro Monica</th>
-                                <th scope="row"> Jueves 18:00 A 20:10</th>
-                            </tr>
-                            <tr>
-                                <th scope="row">Software</th>
-                                <th scope="row">Matias Fernandez</th>
-                                <th scope="row"> Lunes: 15:10 A 16:40
-                                    <br> miercoles: 18:00 A 19:20
-                                </th>
-                            </tr>
-                            <tr>
-                                <th scope="row">Hardware</th>
-                                <th scope="row">Matias Fernandez</th>
-                                <th scope="row"></th>
-                            </tr>
-                            <tr>
-                                <th scope="row">Practicas profesionalizantes</th>
-                                <th scope="row">Matias Fernandez</th>
-                                <th scope="row"></th>
-                            </tr>
-                            <tr>
-                                <th scope="row">Asistencia</th>
-                                <th scope="row">Llauca Estefania</th>
-                                <th scope="row"></th>
-                            </tr>
-                        </tbody>
+                            <% for (let i = 0; i < materia.length; i++) { %>
+                              <tr>
+                                <td>
+                                  <%= materia[i].Nombre %>
+                                </td>
+                                <td>
+                                  <%= materia[i].profesor.Nombre %>
+                                </td>
+                                <td>
+                                    falta ver como agregar esto a la base
+                                </td>
+                              </tr>
+                            <% } %>
+                          </tbody>
                     </div>
                 </table>
             </div>

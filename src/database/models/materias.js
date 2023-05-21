@@ -28,6 +28,11 @@ module.exports = function (sequelize, DataTypes) {
       as: "profesor",
       foreignKey: "id_profesor",
     });
+
+    Materia.hasOne(models.Nota, {
+      foreignKey: "ID_Materia",
+      as: "nota",
+    });
   };
 
   return Materia;

@@ -15,6 +15,14 @@ router.post("/login", authLogin, userController.login);
 //renderizado del login
 router.get("/notas", userController.notas);
 
+// Renderizado de notas
 router.get("/materias", userController.materias);
+
+// Renderizado de cargado de notas
+router.get("/cargado", userController.cargado);
+
+// cargado de notas
+router.post("/cargado", userController.cargarNota);
+
 
 module.exports = router;
