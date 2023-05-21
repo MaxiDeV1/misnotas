@@ -1,6 +1,6 @@
-module.exports = function (sequelize, DataTypes) {
+  module.exports = function (sequelize, DataTypes) {
     let alias = "Preceptor";
-  
+
     let col = {
       ID_Preceptor: {
         type: DataTypes.INTEGER,
@@ -12,16 +12,15 @@ module.exports = function (sequelize, DataTypes) {
       },
       Apellido: {
         type: DataTypes.STRING,
-      },
+      }
     };
-  
+
     let config = {
       tableName: "preceptor",
       timestamps: false,
     };
-  
+
     let Preceptor = sequelize.define(alias, col, config);
-  
+
     return Preceptor;
   };
-  

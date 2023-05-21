@@ -1,12 +1,53 @@
 [
     {
-        "materia": "Matematicas",
-        "nota": "10",
-        "asistencia": "8"
+      "materia": "Matematica",
+      "nota": "5",
+      "asistencia": "8"
     },
     {
-        "materia": "ingles",
-        "nota": "7",
-        "asistencia": "4"
+      "materia": "Ingles",
+      "nota": "6",
+      "asistencia": "8"
+    },
+    {
+      "materia": "Lengua",
+      "nota": "6",
+      "asistencia": "8"
+    },
+    {
+      "materia": "Software",
+      "nota": "6",
+      "asistencia": "8"
+    },
+    {
+      "materia": "Hardware",
+      "nota": "6",
+      "asistencia": "8"
+    },
+    {
+      "materia": "Asistencia",
+      "nota": "6",
+      "asistencia": "8"
+    },
+    {
+      "materia": "Tecnologia",
+      "nota": "6",
+      "asistencia": "8"
+    },
+    {
+      "materia": "Practicas",
+      "nota": "6",
+      "asistencia": "8"
+    },
+    {
+      "materia": "Quimica",
+      "nota": "6",
+      "asistencia": "8"
+    },
+    {
+      "materia": "Redes",
+      "nota": "6",
+      "asistencia": "8"
     }
-]
+  ]
+  

@@ -1,24 +1,34 @@
 module.exports = function (sequelize, DataTypes) {
-    let alias = "Materias";
-  
-    let col = {
-      ID_Materia: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-      },
-      Nombre: {
-        type: DataTypes.STRING,
-      },
-    };
-  
-    let config = {
-      tableName: "materias",
-      timestamps: false,
-    };
-  
-    let Materias = sequelize.define(alias, col, config);
-  
-    return Materias;
+  let alias = "Materia";
+
+  let col = {
+    ID_Materia: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+    },
+    Nombre: {
+      type: DataTypes.STRING,
+    },
+    id_profesor: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   };
-  
+
+  let config = {
+    tableName: "materias",
+    timestamps: false,
+  };
+
+  let Materia = sequelize.define(alias, col, config);
+
+  // Definir la relación con el modelo Profesor
+  Materia.associate = function (models) {
+    Materia.belongsTo(models.Profesor, {
+      as: "profesor",
+      foreignKey: "id_profesor",
+    });
+  };
+
+  return Materia;
+};

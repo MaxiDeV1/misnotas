@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+        <link rel="stylesheet" href="/css/notas.css">
+        <script src="/js/index.js"></script>
+        <title>Notas</title>
+</head>
+
+<body>
+
+    <%- include('./partials/header') %>
+
+        <main>
+            <div class="table">
+                <h2> Curso: 6to 2da</h2>
+                <h2> Alumno: Gonzalo Forneron </h2>
+                <table>
+
+                    <div id="table-head">
+                        <thead>
+                            <tr>
+                                <th scope="col">Materia</th>
+                                <th scope="col">Nota</th>
+                                <th scope="col">Asistencias</th>
+                            </tr>
+                        </thead>
+                    </div>
+                    <div id="table-body">
+                        <tbody>
+                            <% for (let i=0; i < notasFinal.length; i++) { %>
+                                <tr>
+                                    <th scope="row">
+                                        <%= notasFinal[i].materia %>
+                                    </th>
+                                    <th scope="row">
+                                        <%= notasFinal[i].nota %>
+                                    </th>
+                                    <th scope="row">
+                                        <%= notasFinal[i].asistencia %>
+                                    </th>
+                                </tr>
+                                <% } %>
+                        </tbody>
+
+                    </div>
+                </table>
+            </div>
+        </main>
+        <%- include('./partials/footer') %>
+</body>
+
+</html>

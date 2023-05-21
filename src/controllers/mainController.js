@@ -5,9 +5,6 @@ const usersPath = path.join(__dirname,'../database/db.json')
 const users = fs.readFileSync(usersPath,'utf-8')
 
 mainController.inicio = (req,res) => {
-    res.render('index')
-}
-mainController.subida = (req,res) => {
-    res.render('subida')
+    res.render('home')
 }
 module.exports = mainController

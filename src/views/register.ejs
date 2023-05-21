@@ -1,46 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/register.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
-    <title>Registro</title>
-</head>
-<body>
-    <main>
-        <div class="register" id="register">
-            <form action="/alumnos/register" method="POST">
-                <div id="grupo_nombre" class="grupo_nombre">                    
-                    <label for="nombre">nombre</label>
-                    <input type="text" id="nombre" name="nombre">
+    <head>
+        <%- include('./partials/head') %>
+        <link rel="stylesheet" href="/css/style.css">
+        <script src="/js/index.js"></script>
+        <title>Regsitro</title>
+    </head>
+    <body>
+        <%- include('./partials/header') %>
+        <main>
+            <div class="login">
+                <form action="/" method="POST">
+                    <h2>Login</h2>
+                    <div class="login-inputs">                    
+                        <label for="dni">DNI</label>
+                        <input type="number" name="dni" id="dni"  min="1" max="10000000" required>
+                        <label for="password">Contraseña</label>
+                        <input type="password" name="password"
+                            class="form-control" required>
+                        </div>
+                        <input type="checkbox" name="connected" class="checkbox">
+                        <label for="connected">Matenerme conectado</label>
+                        <div class="errores">
+                            <% if (locals && locals.error) {%>
+                                <% for (let error in msgError) { %>
+                                    <ul>
+                                        <li><% msgError[error].msg %></li>
+                                    </ul>
+                                <% } %>
+                            <% } %>
+                        </div>
+                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                </form>
+                <div class="form-bottom">
+                    <a href="/alumnos/register">No tienes cuenta?</a>
+                    <a href="">Olvide mi contraseña</a>
                 </div>
-                <div id="grupo_nombre" class="grupo_nombre">                    
-                    <label for="nombre">correo</label>
-                    <input type="text" id="nombre" name="nombre">
-                </div>
-                <div id="grupo_nombre" class="grupo_nombre">                    
-                    <label for="nombre"></label>
-                    <input type="text" id="nombre" name="nombre">
-                </div>
-                <div id="grupo_dni" class="dni">                    
-                    <label for="dni">DNI</label>
-                    <input type="number" name="dni" id="dni">
-                    <i class="fas fa-times-circle"></i>
-                </div>
-                <div id="grupo_pass" class="conteiner-password">                    
-                    <label for="password">Contraseña</label>
-                    <input type="password" id="password" name="password">
-                </div>
-                <div class="confirm" id="confirm">
-                    <label for="confirmar">Confirmar Contraseña</label>
-                    <input type="password" name="confirm-pass" id="confirm">
-                    <input type="submit" value="submit">
-                </div>
-
-            </form>
-    </main>
-    <script src="/js/index.js"></script>
-</body>
+            </div>
+        </main>
+        <%- include('./partials/footer') %>
+    </body>
 </html>

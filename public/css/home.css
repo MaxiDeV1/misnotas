@@ -1,0 +1,61 @@
+h4 {
+  color: whitesmoke;
+  text-align: center;
+}
+h1 {
+  font-size: 40px;
+  color: whitesmoke;
+  margin: 10px 75rem 10px 0px;
+}
+h2 {
+  color: whitesmoke;
+}
+h3 {
+  width: 40%;
+  font-size: 30px;
+  margin: 10px 40rem 10px 0px;
+}
+button {
+  border-radius: 5px;
+  border: none;
+  padding: 10px 50px;
+  cursor: pointer;
+}
+button:hover {
+  transition: linear all 3ms;
+  color: whitesmoke;
+  background-color: rgb(49, 49, 185);
+}
+.fa-brands {
+  color: #3b5998;
+  font-size: 30px;
+}
+.fa-brands:hover {
+  transition: all 300ms ease;
+  transform: scale(1.2);
+}
+a {
+  text-decoration: none;
+  margin-left: 10px;
+}
+.notas button {
+  margin-bottom: 20px;
+}
+.notas {
+  border-radius: 5px;
+  margin: 20px 0px 10px 24rem;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(26, 26, 26);
+}
+
+.contorno:hover {
+  color: rgb(201, 201, 201);
+}
+
+.cuadro{
+    background-color: red;
+}
