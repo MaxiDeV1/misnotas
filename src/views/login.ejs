@@ -10,24 +10,22 @@
         <%- include('./partials/header') %>
         <main>
             <div class="login">
-                <form action="/" method="POST">
-                    <h2>Login</h2>
+                <form action="/alumnos/login" method="POST">
+                    <h2>Iniciar Sesion</h2>
                     <div class="login-inputs">                    
                         <label for="dni">DNI</label>
-                        <input type="number" name="dni" id="dni"  min="1" max="10000000" required>
+                        <input type="number" name="dni" id="dni">
                         <label for="password">Contraseña</label>
                         <input type="password" name="password"
-                            class="form-control" required>
+                            class="form-control" >
                         </div>
                         <input type="checkbox" name="connected" class="checkbox">
                         <label for="connected">Matenerme conectado</label>
                         <div class="errores">
-                            <% if (locals && locals.error) {%>
-                                <% for (let error in msgError) { %>
-                                    <ul>
-                                        <li><% msgError[error].msg %></li>
-                                    </ul>
-                                <% } %>
+                            <% if (locals.errors) {%>
+                                <% errors.forEach((error) => {%>
+                                    <small><%= error.msg %></small>
+                                <% }) %>
                             <% } %>
                         </div>
                     <button type="submit" class="btn btn-primary">Ingresar</button>

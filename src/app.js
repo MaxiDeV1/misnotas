@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const coockie = require("cookie-parser");
 const app = express();
-
+const session = require('express-session')
 // usamos method override para manejar diferentes solicitudes
 const methodOverride = require("method-override");
 
@@ -13,8 +13,12 @@ const port = process.env.port || 3000;
 const publico = path.resolve(__dirname, "../public");
 app.use(express.static(publico));
 app.use(methodOverride("_method"));
+app.use(session({
+    secret: 'mis notas secretas',
+    resave: true,
+    saveUninitialized: true
+}))
 app.use(coockie());
-
 // Implementamos EJS como motor de vista
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "views"));

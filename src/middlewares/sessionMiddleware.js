@@ -1,6 +1,7 @@
 function sessionMiddleware(req,res,next) {
     if (req.session.usuarioLogueado) {
-        return res.redirect('/alumnos/perfil')
+        console.log(req.session.usuarioLogueado);
+        return res.redirect('/alumnos/notas')
     }
     next()
 }

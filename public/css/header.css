@@ -5,7 +5,8 @@
 }
 body {
   margin: 0;
-  background: url('../img/fondo.jpg');
+  background: url('../img/foto.png');
+  
 }
 header {
   border-bottom: solid 3px black;

@@ -18,9 +18,9 @@ const userController = {};
 userController.login = (req, res) => {
   let error = validationResult(req);
   if (!error.isEmpty()) {
-    return res.render("login", { msgError: error.mapped(), old: req.body });
+    return res.render("login", {errors: error.array(), old: req.body });
   } else {
-    res.render("login");
+    res.redirect('/alumnos/notas');
   }
 };
 
