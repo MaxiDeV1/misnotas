@@ -4,26 +4,23 @@ const userController = require("../controllers/userController.js");
 const authLogin = require("../middlewares/validation.js");
 const authMiddleware = require('../middlewares/autenticacionMiddleware.js')
 const authRegister = require("../middlewares/validationRegister.js");
-
-// renderizado y subida del register
-router.get("/register", userController.register);
-router.post("/register", userController.newUser);
-
+const homeAuth = require('../middlewares/homeMiddleware.js')
 // renderizado y subida del login
-router.get("/login", userController.login);
-router.post("/login", authLogin, userController.login);
+router.post('/sesion-aceptada',userController.aceptado)
+router.get("/login",homeAuth,userController.loginView);
+router.post("/login",userController.login);
 
 //renderizado del login
-router.get("/notas",userController.notas);
+router.get("/notas",authLogin,authMiddleware,userController.notas);
 
 // Renderizado de notas
-router.get("/materias", userController.materias);
+router.get("/materias",authMiddleware,userController.materias);
 
 // Renderizado de cargado de notas
-router.get("/cargado", userController.cargado);
+router.get("/cargado", authMiddleware,userController.cargado);
 
 // cargado de notas
 router.post("/cargado",userController.cargarNota);
-
+router.get('/')
 
 module.exports = router;

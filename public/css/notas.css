@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,200&display=swap');
 body {
     margin: 0;
-    font-family: Arial;
+    font-family: 'Kanit';    
     background-color: rgb(202, 198, 198);
 }
 .table {

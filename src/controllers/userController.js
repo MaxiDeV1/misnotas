@@ -13,13 +13,26 @@ const notasPath = path.join(__dirname, "../database/notas.json");
 const notas = JSON.parse(fs.readFileSync(notasPath, "utf-8"));
 
 const userController = {};
-
+userController.loginView = (req,res) => {
+  req.session.aceptada = false
+  res.render('login')
+}
+userController.aceptado = (req,res) => {
+  req.session.aceptada = true
+  req.session.save(() => {
+    res.redirect('/alumnos/login')
+  })
+}
 // Retorno del login
-userController.login = (req, res) => {
+userController.login = async (req, res) => {
+  req.session.aceptada = true
+  const {dni,password} = req.body
+  await db.Alumno.findAll({where: {}})
   let error = validationResult(req);
   if (!error.isEmpty()) {
-    return res.render("login", {errors: error.array(), old: req.body });
+    return res.render("login", {errors: error.array(), old: req.body,log: false});
   } else {
+    req.session.usuarioLogueado = true
     res.redirect('/alumnos/notas');
   }
 };
