@@ -15,8 +15,12 @@ app.use(express.static(publico));
 app.use(methodOverride("_method"));
 app.use(session({
     secret: 'mis notas secretas',
-    resave: true,
-    saveUninitialized: true
+    resave: false,
+    saveUninitialized: false,
+    coockie: {
+        secure: false,
+        maxAge: 24 * 60 * 60 * 1000,
+    }
 }))
 app.use(coockie());
 // Implementamos EJS como motor de vista
