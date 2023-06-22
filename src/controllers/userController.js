@@ -8,32 +8,33 @@ const userData = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
 //Modelos
 const db = require("../database/models/");
 
-//notas
-const notasPath = path.join(__dirname, "../database/notas.json");
-const notas = JSON.parse(fs.readFileSync(notasPath, "utf-8"));
-
 const userController = {};
-userController.loginView = (req,res) => {
-  req.session.aceptada = false
-  res.render('login')
-}
-userController.aceptado = (req,res) => {
-  req.session.aceptada = true
+
+userController.loginView = (req, res) => {
+  req.session.aceptada = false;
+  res.render("login");
+};
+userController.aceptado = (req, res) => {
+  req.session.aceptada = true;
   req.session.save(() => {
-    res.redirect('/alumnos/login')
-  })
-}
+    res.redirect("/alumnos/login");
+  });
+};
 // Retorno del login
 userController.login = async (req, res) => {
-  req.session.aceptada = true
-  const {dni,password} = req.body
-  await db.Alumno.findAll({where: {}})
+  req.session.aceptada = true;
+  const { dni, password } = req.body;
+  await db.Alumno.findAll({ where: {} });
   let error = validationResult(req);
   if (!error.isEmpty()) {
-    return res.render("login", {errors: error.array(), old: req.body,log: false});
+    return res.render("login", {
+      errors: error.array(),
+      old: req.body,
+      log: false,
+    });
   } else {
-    req.session.usuarioLogueado = true
-    res.redirect('/alumnos/notas');
+    req.session.usuarioLogueado = true;
+    res.redirect("/alumnos/");
   }
 };
 
@@ -61,7 +62,7 @@ userController.register = (req, res) => {
 };
 
 // Creacion de usuarios
-(userController.newUser = (req, res) => {
+userController.newUser = (req, res) => {
   let newData = {
     id: userData.length + 1,
     nombre: req.body.nombre,
@@ -73,24 +74,70 @@ userController.register = (req, res) => {
   userData.push(newUser);
   fs.appendFileSync(usersPath, JSON.stringify(newData), "utf-8");
   return res.redirect("/login", { userData });
-}),
-  //Retorno de materias
-  (userController.materias = async (req, res) => {
-    try {
-      const materia = await db.Materia.findAll({
-        include: [
-          {
-            model: db.Profesor,
-            as: "profesor",
-          },
-        ],
-      });
+};
+//Retorno de horarios
 
-      res.render("materias", { materia });
-    } catch (error) {
-      // Manejo de errores
-    }
-  });
+userController.horarios = async (req, res) => {
+  try {
+    // Obtener los datos de los modelos
+    const cursoHorarios = await db.CursoHorario.findAll({
+      include: [db.Horario],
+      order: [[db.Horario, "ID_Horario", "ASC"]], // Ordenar los horarios por ID_Horario en orden ascendente
+    });
+
+    // Obtener todos los horarios disponibles
+    const horariosDisponibles = Array.from(
+      new Set(
+        cursoHorarios.map((cursoHorario) => cursoHorario.Horario.ID_Horario)
+      )
+    );
+
+    // Obtener los horarios por día
+    const horariosPorDia = {
+      lunes: horariosDisponibles.filter((horario) =>
+        cursoHorarios.some(
+          (cursoHorario) =>
+            cursoHorario.dia === "Lunes" &&
+            cursoHorario.Horario.ID_Horario === horario
+        )
+      ),
+      martes: horariosDisponibles.filter((horario) =>
+        cursoHorarios.some(
+          (cursoHorario) =>
+            cursoHorario.dia === "martes" &&
+            cursoHorario.Horario.ID_Horario === horario
+        )
+      ),
+      miércoles: horariosDisponibles.filter((horario) =>
+        cursoHorarios.some(
+          (cursoHorario) =>
+            cursoHorario.dia === "miércoles" &&
+            cursoHorario.Horario.ID_Horario === horario
+        )
+      ),
+      jueves: horariosDisponibles.filter((horario) =>
+        cursoHorarios.some(
+          (cursoHorario) =>
+            cursoHorario.dia === "jueves" &&
+            cursoHorario.Horario.ID_Horario === horario
+        )
+      ),
+      viernes: horariosDisponibles.filter((horario) =>
+        cursoHorarios.some(
+          (cursoHorario) =>
+            cursoHorario.dia === "viernes" &&
+            cursoHorario.Horario.ID_Horario === horario
+        )
+      ),
+    };
+
+    // Renderizar la vista con los datos obtenidos
+    res.render("Horarios", { horariosDisponibles, horariosPorDia });
+  } catch (error) {
+    console.error("Error al obtener los datos:", error);
+    // Manejar el error de alguna forma apropiada
+  }
+};
 
 // Retorno de register
 userController.cargado = async (req, res) => {
@@ -116,4 +163,8 @@ userController.cargarNota = async (req, res) => {
     res.send("Error al cargar la nota");
   }
 };
+
+userController.inicio = (req,res) => {
+  res.render('home')
+}
 module.exports = userController;

@@ -13,13 +13,17 @@
     <%- include('./partials/header') %>
 
     <main>
+      <a href="/alumnos/cargado">cargado de notas</a>
+
         <div class="table">
-            <h2> Curso: 6to 2da</h2>
-            <h2> Alumno: Gonzalo Forneron </h2>
             <table>
 
                 <div id="table-head">
                     <thead>
+                      <tr>
+                        <th colspan="2">Vincular curso por DB</th>
+                        <th colspan="5">Vincular Preceptor por DB</th>
+                    </tr>
                         <tr>
                             <th scope="col">Materia</th>
                             <th scope="col">Nota</th>
@@ -43,7 +47,6 @@
                           </tr>
                         <% } %>
                       </tbody>
-                      <a href="/alumnos/cargado">cargado de notas</a>
                 </div>
             </table>
         </div>

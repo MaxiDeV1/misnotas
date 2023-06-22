@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+        <link rel="stylesheet" href="/css/notas.css">
+        <script src="/js/index.js"></script>
+        <title>Horarios</title>
+</head>
+
+<body>
+
+    <%- include('./partials/header') %>
+
+        <main>
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="2">Vincular curso por DB</th>
+                            <th colspan="5">Vincular Preceptor por DB</th>
+                        </tr>
+                    </thead>
+                    <table class="tabla">
+                        <tbody>
+                            <tr>
+                                <th class="horas dias" scope="col">Horario</th>
+                                <th class="lunes dias" scope="col">Lunes</th>
+                                <th class="martes dias" scope="col">Martes</th>
+                                <th class="miercoles dias" scope="col">Miércoles</th>
+                                <th class="jueves dias" scope="col">Jueves</th>
+                                <th class="viernes dias" scope="col">Viernes</th>
+                            </tr>
+                            <% horariosDisponibles.forEach((horario)=> { %>
+                                <tr>
+                                    <td class="Horarios">
+                                        <%= horario %>
+                                        <% const horaFinal = new Date(new Date().toDateString() + ' ' + horario);
+                                           horaFinal.setMinutes(horaFinal.getMinutes() + 40); %>
+                                        - <%= horaFinal.toLocaleTimeString('es-ES', { hour: 'numeric', minute: 'numeric' }) %>
+                                    </td>
+                    
+                                    <% Object.keys(horariosPorDia).forEach((dia)=> { %>
+                                        <td class="horario">
+                                            <% if (horariosPorDia[dia].includes(horario)) { %>
+                                                <%= `Materia del día ${dia}` %>
+                                            <% } %>
+                                        </td>
+                                    <% }); %>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                    
+                </table>
+
+            </div>
+        </main>
+        <%- include('./partials/footer') %>
+</body>
+
+</html>

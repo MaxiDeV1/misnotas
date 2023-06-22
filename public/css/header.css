@@ -5,8 +5,7 @@
 body {
   font-family: Arial;
   margin: 0;
-  background: url('../img/g307\ \(1\).png') repeat-x center top;
-  
+  background: url("../img/g307\ \(1\).png") repeat-x center top;
 }
 header {
   border-bottom: solid 3px black;
@@ -30,10 +29,10 @@ header .nav-links {
 p {
   color: whitesmoke;
 }
-header .nav-links li{
-  padding: 0 5px; 
+header .nav-links li {
+  padding: 0 5px;
 }
-header .nav-links a{
+header .nav-links a {
   font-size: 700;
   color: whitesmoke;
   text-decoration: none;

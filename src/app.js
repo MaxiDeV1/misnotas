@@ -1,10 +1,10 @@
+// Llamad de librerias
 const express = require("express");
 const path = require("path");
 const coockie = require("cookie-parser");
 const app = express();
 const session = require('express-session')
-// usamos method override para manejar diferentes solicitudes
-const methodOverride = require("method-override");
+const methodOverride = require("method-override"); // usamos method override para manejar diferentes solicitudes
 
 // decimos que si algun puerto esta ocupado use el 3000
 const port = process.env.port || 3000;

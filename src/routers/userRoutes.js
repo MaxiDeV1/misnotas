@@ -1,26 +1,33 @@
+// Llamada de librerias
 const express = require("express");
 const router = express.Router();
-const userController = require("../controllers/userController.js");
+
+// Middlewares
 const authLogin = require("../middlewares/validation.js");
-const authMiddleware = require('../middlewares/autenticacionMiddleware.js')
+const authMiddleware = require("../middlewares/autenticacionMiddleware.js");
 const authRegister = require("../middlewares/validationRegister.js");
-const homeAuth = require('../middlewares/homeMiddleware.js')
+const homeAuth = require("../middlewares/homeMiddleware.js");
+
+//controlador
+const userController = require("../controllers/userController.js");
+
+
 // renderizado y subida del login
-router.post('/sesion-aceptada',userController.aceptado)
-router.get("/login",homeAuth,userController.loginView);
-router.post("/login",userController.login);
+router.post("/sesion-aceptada", userController.aceptado);
+router.get("/login", homeAuth, userController.loginView);
+router.post("/login", userController.login);
 
-//renderizado del login
-router.get("/notas",authLogin,authMiddleware,userController.notas);
+//renderizado de notas
+router.get("/notas", authLogin, userController.notas);
 
-// Renderizado de notas
-router.get("/materias",authMiddleware,userController.materias);
+// Renderizado de horarios
+router.get("/horarios", userController.horarios);
 
-// Renderizado de cargado de notas
-router.get("/cargado", authMiddleware,userController.cargado);
+// Renderizado y subida de cargado de notas
+router.get("/cargado", userController.cargado);
+router.post("/cargado", userController.cargarNota);
 
-// cargado de notas
-router.post("/cargado",userController.cargarNota);
-router.get('/')
+// Main
+router.get("/", userController.inicio);
 
 module.exports = router;
