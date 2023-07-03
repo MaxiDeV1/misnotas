@@ -12,7 +12,11 @@ const port = process.env.port || 3000;
 // Configurar la carpeta pública para servir archivos estáticos
 const publico = path.resolve(__dirname, "../public");
 app.use(express.static(publico));
+
+// Utilizar peticiones PUT and Delete 
 app.use(methodOverride("_method"));
+
+   // Utilizar las sesiones
 app.use(session({
     secret: 'mis notas secretas',
     resave: false,
@@ -22,7 +26,9 @@ app.use(session({
         maxAge: 24 * 60 * 60 * 1000,
     }
 }))
+
 app.use(coockie());
+
 // Implementamos EJS como motor de vista
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "views"));

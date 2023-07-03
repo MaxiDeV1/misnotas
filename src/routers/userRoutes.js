@@ -30,4 +30,11 @@ router.post("/cargado", userController.cargarNota);
 // Main
 router.get("/", userController.inicio);
 
+// Main
+router.get("/consultas", userController.consulta);
+
+// Register
+router.get("/register", userController.register);
+router.post("/register", userController.guardar);
+
 module.exports = router;

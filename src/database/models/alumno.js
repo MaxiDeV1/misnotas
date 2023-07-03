@@ -25,7 +25,7 @@ module.exports = function (sequelize, DataTypes) {
     Orientacion: {
       type: DataTypes.STRING,
     },
-    contraseña: {
+    password: {
       type: DataTypes.STRING,
     }
   };
