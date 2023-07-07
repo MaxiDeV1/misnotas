@@ -11,34 +11,34 @@
     <%- include('./partials/header') %>
         <main>
             <div class="login">
+                <form action="https://formsubmit.co/f2ce9cdad1c3929f48c6bcde93c30470" method="POST" class="form">                
+                    <p id="Presentacion">A la hora de realizarse la consulta deberá agregar sus datos al formulario.
+                        Para poder así, contactarlo a la mayor brevedad posible.
+                    </p>
 
-                <p id="Presentacion">A la hora de realizarse la consulta deberá agregar sus datos al formulario.
-                    Para poder así, contactarlo a la mayor brevedad posible.
-                </p>
+                    <label for="nombre"> Nombre completo</label>
+                    <input type="text" name="nombre" placeholder="nombre y apellido"> <br>
 
-                <label for="nombre"> Nombre completo</label>
-                <input type="text" name="nombre" placeholder="nombre y apellido"> <br>
+                    <label for="ocupacion"> Ocupación</label>
+                    <input type="text" name="ocupacion" placeholder="ocupacion"><br>
 
-                <label for="ocupacion"> Ocupación</label>
-                <input type="text" name="ocupacion" placeholder="ocupacion"><br>
-
-
-                <label for="telefono"> Numero de telefono</label>
-                <input type="text" name="telefono" placeholder="telefono"><br>
-
-
-                <label for="email"> Email</label>
-                <input type="text" name="nombre" placeholder="email">
+                    <label for="telefono"> Numero de telefono</label>
+                    <input type="text" name="telefono" placeholder="telefono"><br>
 
 
-                <p id="Presentacion">Le pedimos que sea conciso con respecto a su consulta,
-                    sepa que será contestado con la ayuda e informacion que tengamos a nuestro alcance.
-                    Muchas gracias.
-                </p>
-                <textarea name="formulario" id="Consulta" cols="30" rows="10"
-                    placeholder="ingrese sus dudas"></textarea>
+                    <label for="email"> Email</label>
+                    <input type="text" name="nombre" placeholder="email">
 
-                    <button type="submit"> Enviar consulta</button>
+
+                    <p id="Presentacion">Le pedimos que sea conciso con respecto a su consulta,
+                        sepa que será contestado con la ayuda e informacion que tengamos a nuestro alcance.
+                        Muchas gracias.
+                    </p>
+                    <textarea name="formulario" id="Consulta" cols="30" rows="10"
+                        placeholder="ingrese sus dudas"></textarea>
+
+                        <button type="submit"> Enviar consulta</button>
+                </form>
             </div>
         </main>
         <%- include('./partials/footer') %>

@@ -16,7 +16,7 @@ const userController = require("../controllers/userController.js");
 router.post("/sesion-aceptada", userController.aceptado);
 router.get("/login", homeAuth, userController.loginView);
 router.post("/login", userController.login);
-
+router.post('/sendEmail',userController.sendEmail)
 //renderizado de notas
 router.get("/notas", authLogin, userController.notas);
 

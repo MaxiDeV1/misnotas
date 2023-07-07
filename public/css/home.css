@@ -43,7 +43,7 @@ a {
 }
 .notas {
   border-radius: 5px;
-  margin: 20px 0px 10px 24rem;
+  margin: 20px auto;
   width: 40%;
   display: flex;
   justify-content: center;

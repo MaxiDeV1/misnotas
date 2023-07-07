@@ -1,4 +1,5 @@
 const path = require("path");
+const nodemailer = require('nodemailer');
 const fs = require("fs");
 const { validationResult } = require("express-validator");
 const usersPath = path.join(__dirname, "../database/db.json");
@@ -44,6 +45,10 @@ userController.notas = async (req, res) => {
 
 // Retorno de register
 userController.register = (req, res) => {
+  let errors = validationResult(req);
+  if (errors.length > 1) {
+    return res.render('register',{errors})
+  }
   res.render("register", { userData });
 };
 
@@ -145,6 +150,33 @@ userController.inicio = (req, res) => {
 userController.consulta = (req, res) => {
   res.render("formulario-consulta");
 };
+userController.sendEmail = async (req,res) => {
+  const { nombre, ocupacion, telefono, email, formulario } = req.body;
+
+  try {
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false,
+      auth: {
+        user: 'maximovelasquez411@gmail.com',
+        pass: '$maxpro190',
+      },
+    });
+
+    await transporter.sendMail({
+      from: `"${nombre}" "${email}"`,
+      to: 'retr0velasquez@gmail.com',
+      subject: 'escuela',
+      text: formulario,
+    });
+
+    res.status(200).json({ message: 'Correo enviado correctamente' });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: 'Ocurrió un error al enviar el correo' });
+  }
+}
 
 // Proceso de login
 

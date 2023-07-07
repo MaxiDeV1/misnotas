@@ -36,6 +36,7 @@ app.set("views", path.resolve(__dirname, "views"));
 // ruta principal
 app.use("/", require("./routers/mainRouter.js"));
 app.use("/alumnos", require("./routers/userRoutes.js"));
+app.use('/api',require('./API/routes/userAPI.routes.js'))
 
 // usamos urlencoded
 app.use(express.urlencoded({ extended: false }));

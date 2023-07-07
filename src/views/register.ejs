@@ -30,7 +30,13 @@
 
     <label for="password">Contraseña:</label>
     <input type="password" id="password" name="password" required><br><br>
-
+    <div class="errores">
+      <% if (locals.errors) { %>
+        <% errors.forEach(err => { %>
+          <small><%= err.msg %></small>
+        <% }) %>
+      <% } %>
+    </div>
     <input type="submit" value="Guardar">
   </form>
 </body>
