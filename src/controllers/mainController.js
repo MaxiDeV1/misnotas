@@ -1,6 +1,6 @@
 const mainController = {}
 
 mainController.inicio = (req,res) => {
-    res.render('no-oficial')
+    res.render('index')
 }
 module.exports = mainController

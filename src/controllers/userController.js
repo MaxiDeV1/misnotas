@@ -5,8 +5,7 @@ const { validationResult } = require("express-validator");
 const usersPath = path.join(__dirname, "../database/db.json");
 const bcrypt = require('bcryptjs');
 const userData = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
-
-
+const Alumno = require('../database/models/alumno');
 //Modelos
 const db = require("../database/models/");
 
@@ -181,8 +180,8 @@ userController.sendEmail = async (req,res) => {
 // Proceso de login
 
 userController.login = async (req, res) => {
+  req.session.usuarioLogueado = true
   try {
-    console.log(req.body);
     const { dni, password } = req.body;
 
     // Buscar el usuario en la base de datos por nombre de usuario
@@ -194,19 +193,16 @@ userController.login = async (req, res) => {
     }
 
     // Comparar contraseñas
-    if (password === "guevara") {
-      console.log(user);
-      // El usuario debe cambiar la contraseña
-      return res.redirect("/");
-    }
-
+    
     const passwordMatch = await bcrypt.compare(password, user.password);
-
+    
     if (!passwordMatch) {
       // Contraseña incorrecta
       return res.status(401).send("Contraseña incorrecta");
+    } else {
+      // El usuario debe cambiar la contraseña
+      return res.redirect("/alumnos");
     }
-
 
   } catch (error) {
     console.error("Error al comparar las contraseñas:", error);

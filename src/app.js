@@ -1,5 +1,6 @@
 // Llamad de librerias
 const express = require("express");
+const cors = require('cors')
 const path = require("path");
 const coockie = require("cookie-parser");
 const app = express();
@@ -12,7 +13,7 @@ const port = process.env.port || 3000;
 // Configurar la carpeta pública para servir archivos estáticos
 const publico = path.resolve(__dirname, "../public");
 app.use(express.static(publico));
-
+app.use(cors())
 // Utilizar peticiones PUT and Delete 
 app.use(methodOverride("_method"));
 
@@ -36,7 +37,6 @@ app.set("views", path.resolve(__dirname, "views"));
 // ruta principal
 app.use("/", require("./routers/mainRouter.js"));
 app.use("/alumnos", require("./routers/userRoutes.js"));
-app.use('/api',require('./API/routes/userAPI.routes.js'))
 
 // usamos urlencoded
 app.use(express.urlencoded({ extended: false }));
