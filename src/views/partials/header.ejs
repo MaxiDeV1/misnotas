@@ -1,8 +1,16 @@
 <link rel="stylesheet" href="/css/header.css">
 <header class="main-header">
-    <div class="logo">
-        <img src="/img/guevara.png" class="logo" onclick="location.href='/alumnos/'" alt="COLEGIO GUEVARA">
-    </div>
+    <% if (locals.usuarioLogueado) {%>
+        <div class="logo">
+            <img src="/img/guevara.png" class="logo" onclick="location.href='/alumnos/'" alt="COLEGIO GUEVARA">
+        </div>
+    <% } else {%>
+        <div>
+            <div class="logo">
+                <img src="/img/guevara.png" class="logo" onclick="location.href='/alumnos/'" alt="COLEGIO GUEVARA">
+            </div>    
+        </div>
+    <% } %>
     <nav>
         <ul class="nav-links">
             <li><p>Colegio Provincial Dr Ernesto Guevara</p></li>

@@ -4,7 +4,7 @@
 <head>
     <%- include('./partials/head') %>
         <link rel="stylesheet" href="/css/style.css">
-        <script src="/js/index.js"></script>
+        <script src="/js/validationLogin.js"></script>
         <title>Ingreso</title>
 </head>
 
@@ -12,16 +12,17 @@
     <%- include('./partials/header') %>
         <main>
             <div class="login">
-                <form action="" method="POST">
+                <form action="" method="POST" class="form">
                     <h2>Iniciar Sesion</h2>
 
                     <div class="login-inputs">
 
                         <label for="dni">DNI</label>
                         <input type="number" name="dni" id="dni">
-
+                        <div class="error-dni"></div>
                         <label for="password">Contraseña</label>
-                        <input type="password" name="password" class="form-control">
+                        <input type="password" name="password" id="password" class="form-control">
+                        <div class="error-password"></div>
                     </div>
 
                     <input type="checkbox" name="connected" class="checkbox">
@@ -41,7 +42,7 @@
 
                 </form>
                 <div class="form-bottom">
-                    <a href="/alumnos/register">No tienes cuenta?</a>
+                    <a href="/profes/register">No tienes cuenta?</a>
                     <a href="">Olvide mi contraseña</a>
                 </div>
             </div>

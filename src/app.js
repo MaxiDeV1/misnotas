@@ -2,8 +2,7 @@
 const express = require("express");
 const cors = require('cors')
 const path = require("path");
-const coockie = require("cookie-parser");
-const app = express();
+const cookieParser = require("cookie-parser");const app = express();
 const session = require('express-session')
 const methodOverride = require("method-override"); // usamos method override para manejar diferentes solicitudes
 
@@ -12,12 +11,19 @@ const port = process.env.port || 3000;
 
 // Configurar la carpeta pública para servir archivos estáticos
 const publico = path.resolve(__dirname, "../public");
-app.use(express.static(publico));
+app.use(express.static(publico, {
+    extensions: ['css'],
+    setHeaders: (res, path) => {
+        if (path.endsWith('.css')) {
+            res.setHeader('Content-Type', 'text/css');
+        }
+    }
+}));
 app.use(cors())
 // Utilizar peticiones PUT and Delete 
 app.use(methodOverride("_method"));
 
-   // Utilizar las sesiones
+// Utilizar las sesiones
 app.use(session({
     secret: 'mis notas secretas',
     resave: false,
@@ -28,16 +34,14 @@ app.use(session({
     }
 }))
 
-app.use(coockie());
-
 // Implementamos EJS como motor de vista
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "views"));
 
 // ruta principal
-app.use("/", require("./routers/mainRouter.js"));
-app.use("/alumnos", require("./routers/userRoutes.js"));
-
+app.use("/", require("./routers/mainRouter.routes.js"));
+app.use("/alumnos", require("./routers/userRoutes.routes.js"));
+app.use('/profes', require('./routers/profes.routes.js'))
 // usamos urlencoded
 app.use(express.urlencoded({ extended: false }));
 

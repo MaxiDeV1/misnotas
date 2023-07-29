@@ -1,239 +1,251 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Página Escolar</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-  </head>
-  <body>
-    <header>
-      <div class="mobile-menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <nav>
-        <img src="/img/guevara.png" height="60px" >
-        <a href="">Inicio</a>
-        <a href="">Sobre nosotros</a>
-        <a href="">Contacto</a> 
-      </nav>
-    </header>
+<%- include('./partials/head') %>
+<link rel="stylesheet" href="sweetalert2.min.css">
+<body>
+  <header>
+    <div class="mobile-menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <img src="/img/guevara.png" height="60px">
+      <a href="">Inicio</a>
+      <a href="">Sobre nosotros</a>
+      <a href="">Contacto</a>
+    </nav>
+  </header>
 
-    <section class="hero">
-      <div class="hero-content">
-        <h1>Bienvenido a nuestra página de notas</h1>
-        <p>Explora sus materias y sus notas </p>
-        <form action="/alumnos/sesion-aceptada" method="POST">
-          <button class="btn">Ingresar</button>
-        </form>
-      </div>
-    </section>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Bienvenido a nuestra página de notas</h1>
+      <p>Explora sus materias y sus notas </p>
+      <form action="/alumnos/sesion-aceptada" method="POST">
+        <button class="btn" id="btn-ingresar">Ingresar</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="about">
-      <div class="about-content">
-        <h2>Acerca de nosotros</h2>
-        <p>
-          Somos una pagina de notas para los diferentes alumnos<br>
-          tanto los alumnos de bachiller como los de tecnica<br>
-          podran acceder a ver los horarios y sus notas
-        </p>
-      </div>
-    </section>
+  <section class="about">
+    <div class="about-content">
+      <h2>Acerca de nosotros</h2>
+      <p>
+        Somos una pagina de notas para los diferentes alumnos<br>
+        tanto los alumnos de bachiller como los de tecnica<br>
+        podran acceder a ver los horarios y sus notas
+      </p>
+    </div>
+  </section>
 
-    <section class="courses">
+  <section class="courses">
 
-      <div class="course">
-        <h3>Mas Informacion</h3>
-        <p>
-          Explora nuestro Facebook para enterarte de las ultimas noticias
-        </p>
-        <a href="#" class="btn">Más información</a>
-      </div>
-      <div class="course">
-        <h3>Aulas digitales</h3>
-        <p>
-          Visita la pagina web oficial de aulas digitales
-        </p>
-        <a href="#" class="btn">Más información</a>
-      </div>
-    </section>
+    <div class="course">
+      <h3>Mas Informacion</h3>
+      <p>
+        Explora nuestro Facebook para enterarte de las ultimas noticias
+      </p>
+      <a href="#" class="btn">Más información</a>
+    </div>
+    <div class="course">
+      <h3>Aulas digitales</h3>
+      <p>
+        Visita la pagina web oficial de aulas digitales
+      </p>
+      <a href="#" class="btn">Más información</a>
+    </div>
+  </section>
 
-    <footer>
-      <p>Derechos de autor &copy; 2023 Página Escolar</p>
-    </footer>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-      }
+  <footer>
+    <p>Derechos de autor &copy; 2023 Página Escolar</p>
+  </footer>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-      header {
-        background-color: #333;
-        padding: 20px;
-        color: #fff;
-      }
+    header {
+      background-color: #333;
+      padding: 20px;
+      color: #fff;
+    }
 
-      .mobile-menu-toggle {
-        display: none;
-        cursor: pointer;
-      }
+    .mobile-menu-toggle {
+      display: none;
+      cursor: pointer;
+    }
 
-      .mobile-menu-toggle span {
-        display: block;
-        width: 20px;
-        height: 2px;
-        background-color: #fff;
-        margin-bottom: 4px;
-      }
+    .mobile-menu-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background-color: #fff;
+      margin-bottom: 4px;
+    }
 
-      img {
-        border-radius: 50%;
-        height: 60px;
-      }
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      nav a {
-        color: #fff;
-        text-decoration: none;
-      }
-      .hero {
-        background-image: url("/img/foto_fondo.png");
-        background-size: cover;
-        background-position: center;
-        padding: 10rem 0;
-        text-align: center;
-        color: #fff;
-      }
-      .hero p {
-        font-size: 18px;
-        font-weight: 600;
-      }
-      .hero-content {
-        color: #333;
-        max-width: 600px;
-        margin: 0 auto;
-      }
+    img {
+      border-radius: 50%;
+      height: 60px;
+    }
 
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .hero {
+      background-image: url("/img/foto_fondo.png");
+      background-size: cover;
+      background-position: center;
+      padding: 10rem 0;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero p {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .hero-content {
+      color: #333;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      cursor: pointer;
+      border: none;
+      display: inline-block;
+      padding: 17px 80px;
+      background-color: #4caf50;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+
+    .about {
+      padding: 50px 0;
+      text-align: center;
+      color: whitesmoke;
+      background-color: #650909;
+    }
+
+    .about-content {
+      max-width: 600px;
+      margin: 2px auto;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .courses {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 50px 0;
+    }
+
+    .course {
+      width: 300px;
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin: 0 10px;
+    }
+
+    .course h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .course p {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background-color: #333;
+      padding: 20px;
+      color: #fff;
+      text-align: center;
+    }
+
+    @media screen and (max-width: 768px) {
       h1 {
-        font-size: 36px;
-        margin-bottom: 20px;
-      }
-
-      .btn {
-        cursor: pointer;
-        border: none;
-        display: inline-block;
-        padding: 17px 80px;
-        background-color: #4caf50;
-        color: #fff;
-        text-decoration: none;
-        border-radius: 4px;
-      }
-
-      .btn:hover {
-        background-color: #45a049;
-      }
-
-      .about {
-        padding: 50px 0;
-        text-align: center;
-        color: whitesmoke;
-        background-color: #650909;
-      }
-
-      .about-content {
-        max-width: 600px;
-        margin: 2px auto;
-      }
-      h2 {
         font-size: 24px;
-        margin-bottom: 20px;
       }
 
       .courses {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header {
         display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        padding: 50px 0;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav ul li {
+        display: block;
+        margin: 10px 0;
       }
 
       .course {
-        width: 300px;
-        border: 1px solid #ccc;
-        padding: 20px;
-        margin: 0 10px;
+        width: 80%;
+        margin-right: 0;
       }
 
-      .course h3 {
-        font-size: 18px;
-        margin-bottom: 10px;
+      .mobile-menu-toggle {
+        display: block;
       }
 
-      .course p {
-        margin-bottom: 10px;
-      }
-
-      footer {
+      nav {
+        display: none;
+        flex-direction: column;
+        padding: 10px;
         background-color: #333;
-        padding: 20px;
-        color: #fff;
-        text-align: center;
       }
-      @media screen and (max-width: 768px) {
-        h1 {
-          font-size: 24px;
-        }
-        .courses {
-          flex-direction: column;
-          align-items: center;
-        }
-        header {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
 
-        nav ul li {
-          display: block;
-          margin: 10px 0;
-        }
-        .course {
-          width: 80%;
-          margin-right: 0;
-        }
-        .mobile-menu-toggle {
-          display: block;
-        }
-
-        nav {
-          display: none;
-          flex-direction: column;
-          padding: 10px;
-          background-color: #333;
-        }
-
-        nav.open {
-          display: flex;
-        }
-
-        nav ul li {
-          display: block;
-          margin-bottom: 10px;
-        }
+      nav.open {
+        display: flex;
       }
-    </style>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
-        var nav = document.querySelector("nav");
-        mobileMenuToggle.addEventListener("click", function () {
-          nav.classList.toggle("open");
-        });
+
+      nav ul li {
+        display: block;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+      var nav = document.querySelector("nav");
+      mobileMenuToggle.addEventListener("click", function () {
+        nav.classList.toggle("open");
       });
-    </script>
-  </body>
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="sweetalert2.min.js"></script>
+  <script src="sweetalert2.all.min.js"></script>
+  <script src="/js/alertas.js"></script>
+</body>
+
 </html>

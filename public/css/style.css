@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 body {
-    background: url('/img/page.png');
+    background-image: url("/img/foto_fondo.png");
     background-size: cover;
     font-family: Arial;
     margin: 0;
@@ -92,4 +92,11 @@ img {
     margin-top: 15px;
     color: whitesmoke;
     font-size: 18px;
+}
+
+.error {
+    font-weight: 500;
+    margin-top: 5px;
+    font-size: 18px;
+    color: rgb(239, 52, 52);
 }

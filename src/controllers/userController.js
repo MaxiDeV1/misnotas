@@ -12,7 +12,7 @@ const db = require("../database/models/");
 const userController = {};
 
 userController.loginView = (req, res) => {
-  req.session.aceptada = false;
+  req.session.aceptada = true;
   res.render("login");
 };
 
@@ -40,15 +40,6 @@ userController.notas = async (req, res) => {
   } catch (error) {
     // Manejo de errores
   }
-};
-
-// Retorno de register
-userController.register = (req, res) => {
-  let errors = validationResult(req);
-  if (errors.length > 1) {
-    return res.render('register',{errors})
-  }
-  res.render("register", { userData });
 };
 
 //Retorno de horarios
@@ -159,7 +150,7 @@ userController.sendEmail = async (req,res) => {
       secure: false,
       auth: {
         user: 'maximovelasquez411@gmail.com',
-        pass: '$maxpro190',
+        pass: '$maxpro199',
       },
     });
 
@@ -185,7 +176,7 @@ userController.login = async (req, res) => {
     const { dni, password } = req.body;
 
     // Buscar el usuario en la base de datos por nombre de usuario
-    const user = await db.Alumno.findOne({ where: { ID_Alumno: dni } });
+    const user = await db.Alumno.findOne({ where: { ID_Alumno: dni} });
 
     if (!user) {
       // Usuario no encontrado
@@ -193,9 +184,9 @@ userController.login = async (req, res) => {
     }
 
     // Comparar contraseñas
-    
-    const passwordMatch = await bcrypt.compare(password, user.password);
-    
+
+    const passwordMatch = await db.Alumno.findOne({password: user.password});
+
     if (!passwordMatch) {
       // Contraseña incorrecta
       return res.status(401).send("Contraseña incorrecta");
@@ -210,40 +201,4 @@ userController.login = async (req, res) => {
   }
 };
 
-
-userController.guardar = async (req, res) => {
-  try {
-    const { dni, nombre, apellido, edad, idCurso, cicloLectivo, orientacion, password } = req.body;
-
-    // Verificar si el usuario ya existe
-    const existingUser = await db.Alumno.findOne({ where: { ID_Alumno: dni } });
-
-    if (existingUser) {
-      return res.status(409).send("El usuario ya existe");
-    }
-
-    // Generar el hash de la contraseña
-    const hashedPassword = await bcrypt.hash(password, 8);
-
-    // Guardar el usuario en la base de datos
-    const newUser = await db.Alumno.create({
-      ID_Alumno: dni,
-      Nombre: nombre,
-      Apellido: apellido,
-      Edad: edad,
-      ID_Curso: idCurso,
-      Ciclo_Lectivo: cicloLectivo,
-      Orientacion: orientacion,
-      password: hashedPassword
-    });
-
-    if (newUser) {
-      res.redirect(("login"))
-    }
-
-  } catch (error) {
-    console.error("Error al guardar el usuario:", error);
-    return res.status(500).send("Error al guardar el usuario");
-  }
-};
 module.exports = userController;
