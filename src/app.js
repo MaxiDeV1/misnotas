@@ -43,7 +43,7 @@ app.use("/", require("./routers/mainRouter.routes.js"));
 app.use("/alumnos", require("./routers/userRoutes.routes.js"));
 app.use('/profes', require('./routers/profes.routes.js'))
 // usamos urlencoded
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 // como es una DEMO trabajamos con json para simular una BD(Base de Datos)
 app.use(express.json());

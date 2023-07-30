@@ -6,13 +6,13 @@ const usersPath = path.join(__dirname, "../database/db.json");
 const bcrypt = require('bcryptjs');
 const userData = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
 const Alumno = require('../database/models/alumno');
+const coockie = require('cookie-parser'); 
 //Modelos
 const db = require("../database/models/");
 
 const userController = {};
 
 userController.loginView = (req, res) => {
-  req.session.aceptada = true;
   res.render("login");
 };
 
@@ -171,10 +171,9 @@ userController.sendEmail = async (req,res) => {
 // Proceso de login
 
 userController.login = async (req, res) => {
-  req.session.usuarioLogueado = true
   try {
     const { dni, password } = req.body;
-
+    res.locals.dni = dni;
     // Buscar el usuario en la base de datos por nombre de usuario
     const user = await db.Alumno.findOne({ where: { ID_Alumno: dni} });
 
@@ -185,14 +184,14 @@ userController.login = async (req, res) => {
 
     // Comparar contraseñas
 
-    const passwordMatch = await db.Alumno.findOne({password: user.password});
-
-    if (!passwordMatch) {
+    const passwordUser = await db.Alumno.findOne({where: {password: user.password}}) 
+    if (!passwordUser.password || passwordUser.password !== password) {
       // Contraseña incorrecta
       return res.status(401).send("Contraseña incorrecta");
     } else {
       // El usuario debe cambiar la contraseña
-      return res.redirect("/alumnos");
+      
+      return res.redirect(`/alumnos/${user.Nombre}`);
     }
 
   } catch (error) {
