@@ -9,7 +9,7 @@
 
 <body>
     <%- include('./partials/header') %>
-
+    <% if (typeof locals.usuarioSesion != null || undefined) {%>
         <main>
             <section class="inicio" id="">
                 <div class="cuadro">
@@ -22,9 +22,12 @@
                         <button onclick="location.href='/alumnos/horarios'">Ver mis Materias</button>
                     </div>
                 </div>
-
             </section>
         </main>
+    <% } else { %>
+        <h1>no estas logueado</h1>
+
+    <% } %>
         <%- include('./partials/footer') %>
 
 </body>
