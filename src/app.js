@@ -22,7 +22,8 @@ app.use(express.static(publico, {
 app.use(cors())
 // Utilizar peticiones PUT and Delete 
 app.use(methodOverride("_method"));
-
+// implementacion de cookies
+app.use(cookieParser())
 // Utilizar las sesiones
 app.use(session({
     secret: 'mis notas secretas',

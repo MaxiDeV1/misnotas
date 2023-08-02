@@ -12,7 +12,7 @@ const userAuth = require('../middlewares/userAuthMiddleware.js')
 const userController = require("../controllers/userController.js");
 // renderizado y subida del login
 router.post("/sesion-aceptada", userController.aceptado);
-router.get("/login",authLogin,homeAuth, userController.loginView);
+router.get("/login",homeAuth, userController.loginView);
 router.post("/login",userController.login);
 router.post('/sendEmail',userController.sendEmail)
 //renderizado de notas
@@ -26,7 +26,7 @@ router.get("/cargado", userController.cargado);
 router.post("/cargado", userController.cargarNota);
 
 // Main
-router.get("/:username", authLogin,userController.inicio);
+router.get("/", authMiddleware,authLogin,userController.inicio);
 
 // Main
 router.get("/consultas", userController.consulta);

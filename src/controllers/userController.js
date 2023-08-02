@@ -3,10 +3,10 @@ const nodemailer = require('nodemailer');
 const fs = require("fs");
 const { validationResult } = require("express-validator");
 const usersPath = path.join(__dirname, "../database/db.json");
-const bcrypt = require('bcryptjs');
 const userData = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
 const Alumno = require('../database/models/alumno');
-const coockie = require('cookie-parser'); 
+const coockie = require('cookie-parser');
+const jwt = require('jsonwebtoken');
 //Modelos
 const db = require("../database/models/");
 
@@ -133,14 +133,14 @@ userController.cargarNota = async (req, res) => {
 
 // Retorno del home
 userController.inicio = (req, res) => {
-  res.render("home");
+  !req.session.usuarioLogueado ? res.redirect('/alumnos/login') : res.render('home');
 };
 
 // Retorno de formulario de consultas
 userController.consulta = (req, res) => {
   res.render("formulario-consulta");
 };
-userController.sendEmail = async (req,res) => {
+userController.sendEmail = async (req, res) => {
   const { nombre, ocupacion, telefono, email, formulario } = req.body;
 
   try {
@@ -173,9 +173,8 @@ userController.sendEmail = async (req,res) => {
 userController.login = async (req, res) => {
   try {
     const { dni, password } = req.body;
-    res.locals.dni = dni;
     // Buscar el usuario en la base de datos por nombre de usuario
-    const user = await db.Alumno.findOne({ where: { ID_Alumno: dni} });
+    const user = await db.Alumno.findOne({ where: { ID_Alumno: dni } });
 
     if (!user) {
       // Usuario no encontrado
@@ -184,14 +183,17 @@ userController.login = async (req, res) => {
 
     // Comparar contraseñas
 
-    const passwordUser = await db.Alumno.findOne({where: {password: user.password}}) 
+    const passwordUser = await db.Alumno.findOne({ where: { password: user.password } })
     if (!passwordUser.password || passwordUser.password !== password) {
       // Contraseña incorrecta
       return res.status(401).send("Contraseña incorrecta");
     } else {
+      res.cookie('mi_alumno', user.Nombre, { maxAge: 1000 * 60 * 60, httpOnly: true, secure: true })
+      req.session.usuarioLogueado = user;
+      res.locals.usuarioSesion = user;
+      console.log(req.cookies.mi_alumno)
       // El usuario debe cambiar la contraseña
-      
-      return res.redirect(`/alumnos/${user.Nombre}`);
+      return res.redirect(`/alumnos/`);
     }
 
   } catch (error) {
