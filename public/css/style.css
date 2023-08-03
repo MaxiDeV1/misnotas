@@ -87,11 +87,11 @@ img {
     flex-direction: column;
     width: 33%;
 }
-.errores small {
+.errores p{
     font-weight: 500;
-    margin-top: 15px;
-    color: whitesmoke;
+    margin-top: 5px;
     font-size: 18px;
+    color: rgb(239, 52, 52);
 }
 
 .error {

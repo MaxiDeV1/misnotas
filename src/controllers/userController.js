@@ -172,32 +172,36 @@ userController.sendEmail = async (req, res) => {
 
 userController.login = async (req, res) => {
   try {
+    const results = validationResult(req);
     const { dni, password } = req.body;
     // Buscar el usuario en la base de datos por nombre de usuario
     const user = await db.Alumno.findOne({ where: { ID_Alumno: dni } });
-
-    if (!user) {
-      // Usuario no encontrado
-      return res.status(401).send("Usuario no encontrado");
+    //  si el usuario no existe 
+    if (results.errors.length > 0) {
+      return res.render('login',{errors: results.mapped(),old: req.body})
+    }else {      
+      if (!user || user == null) {
+        // Contraseña incorrecta
+        return res.render('login',{errors: {dni: {msg: "El usuario no existe"}}, old: req.body})
+      } else if (user.password != password) {
+        return res.render('login',{errors: {password: {msg: 'Contrseña incorrecta'}}})
+      }
+      else {
+        res.cookie('mi_alumno', user.Nombre, { maxAge: 1000 * 60 * 60, httpOnly: true, secure: true })
+        req.session.usuarioLogueado = user;
+        res.locals.usuarioSesion = user;
+        // El usuario debe cambiar la contraseña
+        return res.redirect(`/alumnos/`);
+      }
     }
 
     // Comparar contraseñas
 
-    const passwordUser = await db.Alumno.findOne({ where: { password: user.password } })
-    if (!passwordUser.password || passwordUser.password !== password) {
-      // Contraseña incorrecta
-      return res.status(401).send("Contraseña incorrecta");
-    } else {
-      res.cookie('mi_alumno', user.Nombre, { maxAge: 1000 * 60 * 60, httpOnly: true, secure: true })
-      req.session.usuarioLogueado = user;
-      res.locals.usuarioSesion = user;
-      console.log(req.cookies.mi_alumno)
-      // El usuario debe cambiar la contraseña
-      return res.redirect(`/alumnos/`);
-    }
 
   } catch (error) {
+    
     console.error("Error al comparar las contraseñas:", error);
+    res.clearCookie('mi_alumno');
     return res.status(500).send("Error al comparar las contraseñas");
   }
 };

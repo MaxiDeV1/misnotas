@@ -26,7 +26,7 @@ router.get("/cargado", userController.cargado);
 router.post("/cargado", userController.cargarNota);
 
 // Main
-router.get("/", authMiddleware,authLogin,userController.inicio);
+router.get("/", authMiddleware,userController.inicio);
 
 // Main
 router.get("/consultas", userController.consulta);

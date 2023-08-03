@@ -1,7 +1,5 @@
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const config = require('../controllers/configToken.js');
 const db = require("../database/models");
 
 const controller = {
@@ -29,10 +27,6 @@ const controller = {
       const hashedPassword = await bcrypt.hash(password, salt);
 
       // Generar el token para el usuario
-      const token = jwt.sign({ nombre }, config.secret, {
-        expiresIn: '2d', // Token expira en 1 día
-      });
-
       // Guardar el usuario en la base de datos junto con el token
       const newUser = await db.Alumno.create({
         ID_Alumno: dni,

@@ -19,25 +19,25 @@
 
                         <label for="dni">DNI</label>
                         <input type="number" name="dni" id="dni">
+                        <div class="errores">
+                            <% if (locals.errors && errors.dni) {%>
+                                <p><%= errors.dni.msg %></p>
+                            <% } %>
+                        </div>
                         <div class="error-dni"></div>
                         <label for="password">Contraseña</label>
                         <input type="password" name="password" id="password" class="form-control">
+                        <div class="errores">
+                            <% if (locals.errors && errors.password) {%>
+                                <p class=""><%= errors.password.msg  %></p>
+                            <% } %>
+                        </div>
                         <div class="error-password"></div>
                     </div>
 
                     <input type="checkbox" name="connected" class="checkbox">
                     <label for="connected">Matenerme conectado</label>
-
-                    <div class="errores">
-                        <% if (locals.errors) {%>
-                            <% errors.forEach((error)=> {%>
-                                <small>
-                                    <%= error.msg %>
-                                </small>
-                            <% }) %>
-                        <% } %>
-                    </div>
-
+                    <div class="errores"></div>
                     <button type="submit" class="btn btn-primary" value="ingresar">Ingresar</button>
 
                 </form>
