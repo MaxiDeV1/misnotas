@@ -61,11 +61,11 @@ button:hover {
 .checkbox {
     margin-bottom: 10px;
 }
-a {
+main a {
     color: black;
     background-color: transparent;
 }
-/* Cambiar el color del borde al que hace referencia el remarcado */
+
 img {
     border-radius: 50%;
 }

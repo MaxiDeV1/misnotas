@@ -8,13 +8,17 @@ const authMiddleware = require("../middlewares/autenticacionMiddleware.js");
 const authRegister = require("../middlewares/validationRegister.js");
 const homeAuth = require("../middlewares/homeMiddleware.js");
 const userAuth = require('../middlewares/userAuthMiddleware.js')
+
+
 //controlador
 const userController = require("../controllers/userController.js");
+
 // renderizado y subida del login
 router.post("/sesion-aceptada", userController.aceptado);
 router.get("/login",homeAuth, userController.loginView);
 router.post("/login",userController.login);
 router.post('/sendEmail',userController.sendEmail)
+
 //renderizado de notas
 router.get("/notas", authLogin, userController.notas);
 

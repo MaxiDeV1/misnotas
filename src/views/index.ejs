@@ -1,20 +1,11 @@
 <%- include('./partials/head') %>
 <link rel="stylesheet" href="sweetalert2.min.css">
 <body>
-  <header>
-    <div class="mobile-menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <nav>
-      <img src="/img/guevara.png" height="60px">
-      <a href="">Inicio</a>
-      <a href="">Sobre nosotros</a>
-      <a href="">Contacto</a>
-    </nav>
-  </header>
 
+  <%- include('./partials/header') %>
+
+
+  
   <section class="hero">
     <div class="hero-content">
       <h1>Bienvenido a nuestra página de notas</h1>
@@ -43,60 +34,25 @@
       <p>
         Explora nuestro Facebook para enterarte de las ultimas noticias
       </p>
-      <a href="#" class="btn">Más información</a>
+      <a href="https://www.facebook.com/colegioguevara" target="_blank" class="btn">Más información</a>
     </div>
+
     <div class="course">
       <h3>Aulas digitales</h3>
       <p>
         Visita la pagina web oficial de aulas digitales
       </p>
-      <a href="#" class="btn">Más información</a>
+      <a href="https://secundario.aulasdigitales.tdf.gob.ar/" class="btn" target="_blank" > Más información </a>
     </div>
   </section>
 
-  <footer>
-    <p>Derechos de autor &copy; 2023 Página Escolar</p>
-  </footer>
+  <%- include('./partials/footer') %>
+
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-    }
-
-    header {
-      background-color: #333;
-      padding: 20px;
-      color: #fff;
-    }
-
-    .mobile-menu-toggle {
-      display: none;
-      cursor: pointer;
-    }
-
-    .mobile-menu-toggle span {
-      display: block;
-      width: 20px;
-      height: 2px;
-      background-color: #fff;
-      margin-bottom: 4px;
-    }
-
-    img {
-      border-radius: 50%;
-      height: 60px;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
     }
 
     .hero {
@@ -185,63 +141,7 @@
       color: #fff;
       text-align: center;
     }
-
-    @media screen and (max-width: 768px) {
-      h1 {
-        font-size: 24px;
-      }
-
-      .courses {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      nav ul li {
-        display: block;
-        margin: 10px 0;
-      }
-
-      .course {
-        width: 80%;
-        margin-right: 0;
-      }
-
-      .mobile-menu-toggle {
-        display: block;
-      }
-
-      nav {
-        display: none;
-        flex-direction: column;
-        padding: 10px;
-        background-color: #333;
-      }
-
-      nav.open {
-        display: flex;
-      }
-
-      nav ul li {
-        display: block;
-        margin-bottom: 10px;
-      }
-    }
   </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
-      var nav = document.querySelector("nav");
-      mobileMenuToggle.addEventListener("click", function () {
-        nav.classList.toggle("open");
-      });
-    });
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="sweetalert2.min.js"></script>
   <script src="sweetalert2.all.min.js"></script>

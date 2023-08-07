@@ -1,73 +1,47 @@
-@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,200&display=swap");
-body {
-  margin: 0;
-  font-family: "Kanit";
-  background-color: rgb(202, 198, 198);
+table.cal {
+	display:inline-block;
+	min-height:600px;
+	width:97%;
+	color: #06425c;
+	border-spacing:0;
+	border: 1px solid grey;
+	border-radius: 20px 20px 20px 20px;
+	padding: 2%;
+	margin: 2%;
 }
-.table {
-  margin: 50px auto;
-  width: 80%;
-  justify-content: center;
+table > caption {
+	border: 5px solid  grey;
+	
+	border-radius: 15px;
+	text-transform: uppercase;
+	text-align: center;
+	background-color: #008080;
+	color: #ffffff;
+	font-size: 50px; 
+	padding:1% 1% 1% 1% ;
+	margin:2% 2% 2% 2% ;
 }
-table {
-  border-collapse: collapse;
-  background-color: white;
-  text-align: left;
-  width: 100%;
+
+tr:nth-child(odd) {
+	
+	border-radius: 10px 10px 10px 10px;
+	padding:1%;
+	margin:1%;
 }
-tr:hover {
-  color: whitesmoke;
-  background-color: rgb(197, 194, 194);
-  cursor: pointer;
+tr:nth-child(even) {
+		border-radius: 10px 10px 10px 10px;
+	padding:1%;
+	margin:1%;
 }
-th,
-td {
-  text-align: center;
-  padding: 20px;
-  border: solid 2px black; /* ESTO ES LA LETRA DE LOS DIAS */
-  font-size: 20px;
+tr:last-child {
+	border-radius: 0 0 10px 10px;
+	padding:1%;
+	margin:1%;
 }
-thead {
-  color: whitesmoke;
-  background-color: #003049;
-}
-thead th[colspan="2"] {
-  width: 50%;
-}
-td[style="background-color: #f2f2f2;"] {
-  background-color: #f2f2f2;
-  font-weight: bold;
-}
-.recreo {
-  grid-column: 1 / -1; /* Ocupa todas las columnas */
-  text-align: center; /* Texto centrado */
-}
-.tabla td {
-  height: 50px; /* Ajusta el valor según el tamaño deseado */
-}
-.horas {
-  background-color: #003049;
-}
-.lunes {
-  background-color: #414a4f;
-}
-.martes {
-  background-color: #fb9334;
-}
-.miercoles {
-  background-color: #fe6625;
-}
-.jueves {
-  background-color: #44857d;
-}
-.viernes {
-  background-color: #166f71;
-}
-.Horarios {
-  background-color: #96aeb8;
-  font-size: 20px;
-  font-weight: bold;
-}
-.dias {
-  color: whitesmoke;
+
+
+th {
+	text-align: center;
+	background: #ffffff;
+	border: 2px outset grey;
 }

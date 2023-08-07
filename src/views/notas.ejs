@@ -2,56 +2,98 @@
 <html lang="en">
 
 <head>
-    <%- include('./partials/head') %>
+  <%- include('./partials/head') %>
     <link rel="stylesheet" href="/css/notas.css">
     <script src="/js/index.js"></script>
     <title>Notas</title>
 </head>
 
 <body>
+  <%- include('./partials/header') %>
 
-    <%- include('./partials/header') %>
+    <table class="cal">
+      <thead>
+        <tr>
+          <th>NOTAS</th>
 
-    <main>
-      <a href="/alumnos/cargado">cargado de notas</a>
+          <% for (let i=0; i < notasFinal.length; i++) { %>
+            <div id="materias" class="materia-cell">
+              <th>
+                <%= notasFinal[i].materia.Nombre %>
+              </th>
+            </div>
+            <% } %>
 
-        <div class="table">
-            <table>
-              
-                <div id="table-head">
-                    <thead>
-                      <tr>
-                        <th colspan="2">Vincular curso por DB</th>
-                        <th colspan="5">Vincular Preceptor por DB</th>
-                    </tr>
-                        <tr>
-                            <th scope="col">Materia</th>
-                            <th scope="col">Nota</th>
-                            <th scope="col">Asistencias</th>
-                        </tr>
-                    </thead>
-                </div>
-                <div id="table-body">
-                    <tbody>
-                        <% for (let i = 0; i < notasFinal.length; i++) { %>
-                          <tr>
-                            <td>
-                              <%= notasFinal[i].materia.Nombre %>
-                            </td>
-                            <td>
-                              <%= notasFinal[i].Nota %>
-                            </td>
-                            <td>
-                              falta ver como agregar esto a la base
-                            </td>
-                          </tr>
-                        <% } %>
-                      </tbody>
-                </div>
-            </table>
-        </div>
-    </main>
-    <%- include('./partials/footer') %>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+        <tr>
+          <th class="horas">1er parcial </th>
+
+          <% for (let i=0; i < notasFinal.length; i++) { %>
+            <div class="materia-cell">
+              <th></th>
+            </div>
+            <% } %>
+
+        </tr>
+
+        <tr>
+          <th class="horas">2do parcial </th>
+
+          <% for (let i=0; i < notasFinal.length; i++) { %>
+            <div class="materia-cell">
+              <th></th>
+            </div>
+            <% } %>
+        </tr>
+        <tr>
+          <th class="horas"> nota</th>
+
+          <% for (let i=0; i < notasFinal.length; i++) { %>
+            <div class="materia-cell">
+              <th></th>
+            </div>
+            <% } %>
+
+        </tr>
+        <tr>
+          <th class="horas">1er parcial </th>
+
+          <% for (let i=0; i < notasFinal.length; i++) { %>
+            <div class="materia-cell">
+              <th></th>
+            </div>
+            <% } %>
+
+        </tr>
+
+        <tr>
+          <th class="horas">2do parcial </th>
+
+          <% for (let i=0; i < notasFinal.length; i++) { %>
+            <div class="materia-cell">
+              <th></th>
+            </div>
+            <% } %>
+        </tr>
+        <tr>
+          <th class="horas"> nota</th>
+
+          <% for (let i=0; i < notasFinal.length; i++) { %>
+            <div class="materia-cell">
+              <th></th>
+            </div>
+            <% } %>
+          <td ></td>
+        </tr>
+
+      </tbody>
+    </table>
 </body>
+<%- include('./partials/footer') %>
 
 </html>

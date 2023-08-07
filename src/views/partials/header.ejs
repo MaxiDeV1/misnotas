@@ -1,11 +1,38 @@
-<link rel="stylesheet" href="/css/header.css">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/header.css">
+</head>
+<body>
+
 <header>
-    <img  src="/img/guevara.png" alt="" height="60px" width="70px" style="cursor: pointer; border-radius: 48%;">
-    <nav>
-        <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#mis-notas">Mis Notas</a></li>
-            <li><a href="#consultas">Consultas</a></li>
-        </ul>
-    </nav>
+  <div class="mobile-menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav>
+    <img id="logo" src="/img/guevara.png" height="60px" onclick="location.href='/'">
+      <a class="texto">Colegio provincial Dr. Ernesto Guevara</a>
+      <a class="fa-solid fa-user" href=""></a>
+  </nav>
 </header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+    var nav = document.querySelector("nav");
+    mobileMenuToggle.addEventListener("click", function () {
+      nav.classList.toggle("open");
+    });
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="sweetalert2.min.js"></script>
+<script src="sweetalert2.all.min.js"></script>
+<script src="/js/alertas.js"></script>
+
+</body>
+</html>

@@ -1,69 +1,114 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
 header {
-  background-color: #333;
+  background-color: #b33939;
+  padding: 20px;
   color: #fff;
-  padding: 10px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-.logo {
-  flex: 1;
+.mobile-menu-toggle {
+  display: none;
+  cursor: pointer;
 }
 
-.logo a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #fff;
-  font-size: 20px;
+.mobile-menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+  margin-bottom: 4px;
 }
 
-.logo img {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
+#logo {
+  border-radius: 50%;
+  height: 6%;
+  width: 6%; 
+  margin-right: 2%; 
+  cursor: pointer;
+}
+
+#logo:hover {
+  cursor: pointer;
 }
 
 nav {
-  flex: 2;
-  text-align: right;
+  display: flex;
+  align-items: center;
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.header-text {
+  text-align:left;
+  margin: 0 auto;
 }
 
-nav li {
-  display: inline-block;
-  margin-right: 20px;
+.fa-solid.fa-user {
+  font-size: 200%; 
+  margin-left: auto;
+  color: fff;
+  margin-right: 2%;
 }
 
-nav a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 18px;
-  transition: transform 0.3s ease;
-  display: block;
-}
 
-nav a:hover {
-  color: grey;
-}
-@media (max-width: 768px) {
-  nav {
-    flex: 1;
-    text-align: center;
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 24px;
   }
 
-  nav li {
+  #logo {
+    margin: 20px auto;
+  }
+
+  .header-text {
+    margin-top: 15px;
+    text-align: center;
+    position: static; 
+    transform: none;
+  }
+
+  .fa-solid.fa-user {
+    margin: 15px auto;
+    position: static;
+    transform: none;
+  }
+
+  .courses {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .course {
+    width: 80%;
+    margin-right: 0;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #b33939;
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  nav ul li {
     display: block;
     margin-bottom: 10px;
   }
